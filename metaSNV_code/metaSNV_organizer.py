@@ -17,17 +17,14 @@ def process_file(file_path, samples_file):
     df1 = pd.read_csv(file_path, sep='\t', header=None)
     new_df = df1.drop(columns=[4, 5])
 
-    # Read the samples file and extract relevant lines
+    # Extract the filenames from the samples file paths
     with open(samples_file) as f:
         lines = f.readlines()
-    new_lines = []
-    for line in lines:
-        match = re.search(r'[ms]\d+\.\w+\.\w+\.\w+\.\w+', line)
-        if match:
-            new_lines.append(match.group())
-
-    # Set the columns of df using new_lines
-    df.columns = new_lines
+    
+    samples_filenames = [os.path.basename(path.strip()) for path in lines]
+    
+    # Set the columns of df using the extracted filenames
+    df.columns = samples_filenames
 
     # Create the 'variant_accession' column
     new_df['variant_accession'] = new_df.apply(lambda row: '|'.join([str(row[0]), str(row[1]), str(row[2]), str(row[3])]), axis=1)
