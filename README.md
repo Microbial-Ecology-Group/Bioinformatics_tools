@@ -22,6 +22,7 @@ There are 3 scrpits which can be used to run the DADA2 library on Big Data.
 1. For filtering and trimming use script filter.R
 
 Use the following command to run the script
+
 `Rscript script.R --forward-path /path/to/FWD --reverse-path /path/to/REV --trunc-len 240 200 --max-ee 2 --trunc-q 11 --max-n 0 --rm-phix TRUE --compress TRUE --verbose TRUE --multithread TRUE`
 
 2. To Infer Sequence Variants use script Error.R
