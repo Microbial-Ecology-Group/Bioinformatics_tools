@@ -36,6 +36,3 @@ seqtab_file <- file.path(opt$output_path, "seqtab_final.rds")
 tax_file <- file.path(opt$output_path, "tax_final.rds")
 saveRDS(seqtab, seqtab_file)
 saveRDS(tax, tax_file)
-
-# Command line prompt
-Rscript Taxonomy.R --run1-seqtab /path/to/run1/output/seqtab.rds --run2-seqtab /path/to/run2/output/seqtab.rds --run3-seqtab /path/to/run3/output/seqtab.rds --taxonomy-file /path/to/silva_nr_v128_train_set.fa.gz --output-path /path/to/study
