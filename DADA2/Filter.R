@@ -56,6 +56,5 @@ filterAndTrim(fwd = file.path(pathF, fastqFs), filt = file.path(filtpathF, fastq
               truncLen = truncLen, maxEE = maxEE, truncQ = truncQ, maxN = maxN,
               rm.phix = rm.phix, compress = compress, verbose = verbose, multithread = multithread)
 
-#Command Line Prompt
-Rscript script.R --forward-path /path/to/FWD --reverse-path /path/to/REV --trunc-len 240 200 --max-ee 2 --trunc-q 11 --max-n 0 --rm-phix TRUE --compress TRUE --verbose TRUE --multithread TRUE
+
 
