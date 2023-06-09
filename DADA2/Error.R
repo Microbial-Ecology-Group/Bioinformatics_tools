@@ -57,5 +57,3 @@ seqtab <- makeSequenceTable(mergers)
 output_file <- file.path(opt$output_path, "seqtab.rds")
 saveRDS(seqtab, output_file)
 
-# Commandline Prompt
-Rscript Error.R --filtered-path /path/to/FWD/filtered --output-path /path/to/run1/output
