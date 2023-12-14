@@ -1,4 +1,4 @@
-__author__ = "Anish Rahul Talwelkar"
+__author__ = "Anish Rahul Talwelkar, Enrique Doster"
 
 import argparse
 import glob
@@ -6,6 +6,11 @@ import pandas as pd
 import numpy as np
 import os
 import re
+
+# Take as input the result files from metaSNV for called_SNPs
+
+# Example command:
+# python metaSNV_organizer.py -i "Output_metaSNV_results/snpCaller/called_SNPs" -s "metaSNV_sample_names.txt" -o "metaSNV_AMR_analytic_matrix.csv"
 
 def process_file(file_path, samples_file):
     # Read the input file as df
@@ -37,6 +42,23 @@ def process_file(file_path, samples_file):
     final_df = final_df.set_index(['variant_accession'])
 
     return final_df
+    
+    
+def create_annotations(concatenated_df):
+    # Split the 'variant_accession' column to create annotations
+    annotations = concatenated_df.index.to_series().str.split('|', expand=True)
+
+    # Assign columns based on the split, shifted by one column
+    annotations.columns = ["variant_accession", "type", "class", "mechanism", "group", "snp"] + [f"extra_{i}" for i in range(annotations.shape[1] - 6)]
+    
+    # Concatenate the last two sections for the 'variant' column
+    annotations['variant'] = annotations.iloc[:, -2:].apply(lambda x: '|'.join(x.dropna().astype(str)), axis=1)
+
+    # Keep only the required columns
+    annotations = annotations[["variant_accession", "type", "class", "mechanism", "group", "snp", "variant"]]
+
+    return annotations 
+
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
@@ -57,6 +79,13 @@ if args.input:
         # Save the concatenated DataFrame to a single output file
         concatenated_df.to_csv(args.output, index=True)
         print(f"{args.output} created.")
+
+        # Create and save annotations
+        annotations = create_annotations(concatenated_df)
+        annotation_output = f"annotations_{args.output}"
+        annotations.to_csv(annotation_output, index=False)
+        print(f"{annotation_output} created.")
+        
     else:
         print(f"No files found matching the pattern: {args.input}")
 else:
