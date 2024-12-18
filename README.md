@@ -36,3 +36,8 @@ Use the following command to run the script
 Use the following command to run the script
 
 `Rscript Taxonomy.R --run1-seqtab /path/to/run1/output/seqtab.rds --run2-seqtab /path/to/run2/output/seqtab.rds --run3-seqtab /path/to/run3/output/seqtab.rds --taxonomy-file /path/to/silva_nr_v128_train_set.fa.gz --output-path /path/to/study`
+
+### megares-update
+
+Find new resistance genes in databases, cluster and annotate them, and add them
+to MEGARes.

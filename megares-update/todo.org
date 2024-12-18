@@ -1,0 +1,5 @@
+* Input downloads.
+** [[https://card.mcmaster.ca/download][CARD]]
+** [[http://genepi.food.dtu.dk/resfinder][ResFinder]]
+** [[https://www.ncbi.nlm.nih.gov/bioproject/313047/][NCBI database]]
+*** [[https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/][distinct from?]]
