@@ -1,5 +1,11 @@
 * Input downloads.
 ** [[https://card.mcmaster.ca/download][CARD]]
+[[https://card.mcmaster.ca/latest/data][latest available]], also published in versioned downloads
 ** [[http://genepi.food.dtu.dk/resfinder][ResFinder]]
+appears to use [[https://bitbucket.org/genomicepidemiology/resfinder_db][a Bitbucket repository]] as the data source; website suggests that
+the =resfinder-4.5.0=/2.3.1 is used there, while =resfinder-4.6.0= is available
+and there have been commits since
 ** [[https://www.ncbi.nlm.nih.gov/bioproject/313047/][NCBI database]]
-*** [[https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/][distinct from?]]
+data are available from the [[https://www.ncbi.nlm.nih.gov/pathogens/refgene][catalog]] according to [[https://www.ncbi.nlm.nih.gov/pathogens/pathogens_help/#refgene-access-download][documentation]]; automation
+seems possible via the official [[https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/datasets/][datasets]] tool or something like the code in
+[[https://github.com/StuntsPT/NCBI_Mass_Downloader][this open source project]]
