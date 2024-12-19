@@ -1,4 +1,4 @@
-default: input/card/nucleotide_fasta_protein_homolog_model.fasta input/resfinder/genomicepidemiology-resfinder_db-d1e607b89892/all.fsa input/ncbi/ncbi_dataset/data/nucleotide.fna
+default: input/card/nucleotide_fasta_protein_homolog_model.fasta input/resfinder/genomicepidemiology-resfinder_db-d1e607b89892/all.fsa input/ncbi/ncbi_dataset/data/nucleotide.fna input/megares/megares_v3.00/megares_database_v3.00.fasta
 .PHONY: default
 
 input/card/nucleotide_fasta_protein_homolog_model.fasta: input/broadstreet-v4.0.0.tar.bz2
@@ -20,3 +20,10 @@ input/resfinder-4.6.0.tar.bz2:
 input/ncbi/ncbi_dataset/data/nucleotide.fna:
 	unzip input/refgene_catalog.zip -d input/ncbi
 	touch input/ncbi/ncbi_dataset/data/nucleotide.fna
+
+input/megares/megares_v3.00/megares_database_v3.00.fasta: input/megares_v3.00.zip
+	unzip input/megares_v3.00.zip -d input/megares
+	touch input/megares/megares_v3.00/megares_database_v3.00.fasta
+
+input/megares_v3.00.zip:
+	curl -O --output-dir input https://www.meglab.org/downloads/megares_v3.00.zip
