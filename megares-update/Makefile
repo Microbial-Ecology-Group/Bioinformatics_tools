@@ -1,4 +1,4 @@
-default: input/card/nucleotide_fasta_protein_homolog_model.fasta input/resfinder/genomicepidemiology-resfinder_db-d1e607b89892/all.fsa input/ncbi/AMR_CDS.fa input/megares/megares_v3.00/megares_database_v3.00.fasta
+default: input/card/nucleotide_fasta_protein_homolog_model.fasta input/resfinder/genomicepidemiology-resfinder_db-d1e607b89892/all.fsa input/pointfinder/genomicepidemiology-pointfinder_db-694919f59a38/campylobacter/campylobacter.fsa input/ncbi/AMR_CDS.fa input/megares/megares_v3.00/megares_database_v3.00.fasta
 .PHONY: default
 
 input/card/nucleotide_fasta_protein_homolog_model.fasta: input/broadstreet-v4.0.0.tar.bz2
@@ -16,6 +16,14 @@ input/resfinder/genomicepidemiology-resfinder_db-d1e607b89892/all.fsa: input/res
 
 input/resfinder-4.6.0.tar.bz2:
 	curl -O --output-dir input https://bitbucket.org/genomicepidemiology/resfinder_db/get/resfinder-4.6.0.tar.bz2
+
+input/pointfinder/genomicepidemiology-pointfinder_db-694919f59a38/campylobacter/campylobacter.fsa: input/pointfinder-4.6.0.tar.bz2
+	mkdir -p input/pointfinder
+	tar -xf $< -C input/pointfinder
+	touch -c $@
+
+input/pointfinder-4.6.0.tar.bz2:
+	curl -o pointfinder-4.6.0.tar.bz2 --output-dir input https://bitbucket.org/genomicepidemiology/pointfinder_db/get/resfinder-4.6.0.tar.bz2
 
 input/ncbi/AMR_CDS.fa:
 	mkdir -p input/ncbi
