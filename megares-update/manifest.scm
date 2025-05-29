@@ -1,1 +1,1 @@
-(specifications->manifest '("python-wrapper"))
+(specifications->manifest '("clojure-tools" "python-wrapper"))
