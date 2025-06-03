@@ -1,0 +1,9 @@
+.direnv/
+cdhit/
+.cpcache/
+docs/
+all.fsa
+all.fsa.clstr
+update.fsa
+update.fsa.clstr
+matches.tsv
